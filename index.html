@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudhruti Mohanty | Technical Portfolio</title>
+    <style>
+        /* 1. Global Styles and Typography */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --color-primary: #1f4068;
+            --color-secondary: #162447;
+            --color-light-bg: #f4f7f9;
+            --color-card-bg: #ffffff;
+            --color-text-dark: #1f2937;
+            --color-blue: #3b82f6;
+            --color-green: #10b981;
+            --color-yellow: #f59e0b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-light-bg);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--color-text-dark);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--color-light-bg); }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* 2. Header and Hero Section */
+        .hero-bg {
+            background-image: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-content {
+            max-width: 896px; /* max-w-4xl */
+            margin: 0 auto;
+            padding: 24px; /* p-6 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 96px; /* w-24 */
+            height: 96px; /* h-24 */
+            border-radius: 50%; /* rounded-full */
+            border: 4px solid white; /* border-4 border-white */
+            margin-bottom: 16px; /* mb-4 */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); /* shadow-lg */
+        }
+
+        .hero-title {
+            font-size: 30px; /* text-3xl */
+            font-weight: 800; /* font-extrabold */
+            margin-bottom: 4px; /* mb-1 */
+        }
+        @media (min-width: 640px) {
+            .hero-title { font-size: 36px; /* sm:text-4xl */ }
+        }
+
+        .hero-subtitle {
+            font-size: 20px; /* text-xl */
+            font-weight: 300; /* font-light */
+            margin-bottom: 24px; /* mb-6 */
+            opacity: 0.9;
+        }
+
+        /* Key Application Links */
+        .link-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px; /* gap-4 */
+        }
+
+        .link-button {
+            padding: 8px 24px; /* py-2 px-6 */
+            font-weight: 600; /* font-semibold */
+            border-radius: 9999px; /* rounded-full */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06); /* shadow-lg */
+            text-decoration: none;
+        }
+
+        .link-github {
+            background-color: white;
+            color: #1f2937; /* gray-800 */
+        }
+        .link-github:hover {
+            background-color: #e5e7eb; /* hover:bg-gray-200 */
+        }
+
+        .link-linkedin {
+            background-color: #374151; /* gray-700 */
+            color: white;
+        }
+        .link-linkedin:hover {
+            background-color: #4b5563; /* hover:bg-gray-600 */
+        }
+
+        /* 3. Main Content and Sections */
+        .main-content {
+            max-width: 896px; /* max-w-4xl */
+            margin: 0 auto;
+            padding: 32px 16px; /* px-4 py-8 sm:py-12 */
+        }
+
+        .section {
+            margin-bottom: 48px; /* mb-12 */
+        }
+
+        .section-title {
+            font-size: 24px; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: #1f2937; /* text-gray-800 */
+            border-bottom: 2px solid var(--color-blue); /* border-b-2 border-blue-500 */
+            padding-bottom: 8px; /* pb-2 */
+            margin-bottom: 24px; /* mb-6 */
+        }
+
+        .card {
+            background-color: var(--color-card-bg);
+            padding: 24px; /* p-6 */
+            border-radius: 12px; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+        }
+
+        .text-relaxed {
+            color: #4b5563; /* text-gray-700 */
+            line-height: 1.75; /* leading-relaxed */
+        }
+
+        /* 4. Skills Section */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
+            gap: 12px; /* gap-3 */
+        }
+        @media (min-width: 640px) { /* sm: */
+            .skill-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr)); /* sm:grid-cols-3 */
+            }
+        }
+        @media (min-width: 768px) { /* md: */
+            .skill-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr)); /* md:grid-cols-4 */
+            }
+        }
+
+        .skill-tag {
+            background-color: #e6f7ff; /* Lighter blue for tags */
+            color: #1a75ff; /* Blue text */
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: transform 0.2s;
+            text-align: center;
+        }
+        .skill-tag:hover {
+            transform: translateY(-2px);
+        }
+
+        /* 5. Projects Section */
+        .project-grid {
+            display: grid;
+            gap: 24px; /* gap-6 */
+        }
+        
+        .project-card {
+            border-left-width: 4px; /* border-l-4 */
+            background-color: var(--color-card-bg);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* hover:shadow-xl */
+        }
+
+        .project-card:nth-child(1) { border-left-color: #2563eb; /* blue-600 */ }
+        .project-card:nth-child(2) { border-left-color: var(--color-green); /* green-600 */ }
+        .project-card:nth-child(3) { border-left-color: var(--color-yellow); /* yellow-600 */ }
+
+
+        .project-title {
+            font-size: 20px; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            margin-bottom: 8px; /* mb-2 */
+        }
+
+        .project-meta {
+            font-size: 14px; /* text-sm */
+            color: #6b7280; /* text-gray-500 */
+            margin-bottom: 16px; /* mb-4 */
+        }
+
+        .project-link {
+            color: #2563eb; /* text-blue-600 */
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .project-link:hover {
+            color: #1d4ed8; /* hover:text-blue-800 */
+            text-decoration: underline;
+        }
+
+        /* 6. Footer */
+        .footer {
+            background-color: #1f2937; /* gray-800 */
+            color: white;
+            text-align: center;
+            padding: 24px; /* p-6 */
+            margin-top: 48px; /* mt-12 */
+        }
+
+        .footer-content {
+            max-width: 896px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            font-size: 14px; /* text-sm */
+            margin-bottom: 8px; /* mb-2 */
+        }
+
+        .footer-contact {
+            font-size: 12px; /* text-xs */
+            color: #9ca3af; /* text-gray-400 */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Hero Section -->
+    <header class="hero-bg">
+        <div class="hero-content">
+            <!-- Profile Placeholder -->
+            <img src="https://placehold.co/100x100/ffffff/1f4068?text=SM" alt="Profile Picture" class="profile-img">
+            
+            <h1 class="hero-title">Sudhruti Mohanty</h1>
+            <p class="hero-subtitle">B.Tech CSE | Software Development & Algorithms Enthusiast</p>
+
+            <!-- Key Application Links -->
+            <div class="link-group">
+                <a href="https://github.com/SM0HANTY" target="_blank" class="link-button link-github">
+                    GitHub: SM0HANTY
+                </a>
+                <a href="https://linkedin.com/in/sudhrutimohanty/" target="_blank" class="link-button link-linkedin">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="section-title">Overview</h2>
+            <div class="card">
+                <p class="text-relaxed">
+                    I am a final-year Computer Science Engineering student from **Institute of Technical Education and Research (ITER), Siksha 'O' Anusandhan** with a strong academic standing (**8.35 CGPA**). My focus is on building efficient and scalable solutions, complemented by practical experience in **Data Structures and Algorithms** on platforms like Geeks for Geeks and LeetCode. I am eager to apply my skills in PHP, JavaScript, and database management to high-performance web development roles.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Technical Competencies</h2>
+            
+            <div class="card skill-grid">
+                
+                <!-- Programming Languages -->
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">JavaScript</span>
+                
+                <!-- Web & Database -->
+                <span class="skill-tag">HTML & CSS</span>
+                <span class="skill-tag">SQL & MySQL</span>
+                <span class="skill-tag">Git & GitHub</span>
+                
+                <!-- Specialized Skills & Tools -->
+                <span class class="skill-tag">Data Structures & Algo</span>
+                <span class="skill-tag">Linux / VS Code</span>
+                <span class="skill-tag">Tableau / Excel</span>
+                <span class="skill-tag">Cloud (Salesforce)</span>
+                <span class="skill-tag">Full Stack (Ongoing)</span>
+            </div>
+        </section>
+
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title">Key Projects</h2>
+            
+            <div class="project-grid">
+                
+                <!-- Project Card 1: Haven House (Web Dev) -->
+                <div class="project-card">
+                    <h3 class="project-title">Haven House Website</h3>
+                    <p class="project-meta">HTML, CSS, JavaScript | Feb 2025</p>
+                    <p class="text-relaxed">
+                        Designed and developed a fully responsive interior design website featuring smooth navigation, interactive UI components, and mobile-friendly layouts. Implemented dynamic elements like a three-dot profile menu and a call scheduling popup.
+                    </p>
+                    <a href="YOUR_HAVEN_HOUSE_GITHUB_LINK" target="_blank" class="project-link">
+                        View Code on GitHub &rarr;
+                    </a>
+                </div>
+
+                <!-- Project Card 2: Library Management System (Database/SQL) -->
+                <div class="project-card">
+                    <h3 class="project-title">Library Management System (SQL)</h3>
+                    <p class="project-meta">SQL, Database Management | April 2025</p>
+                    <p class="text-relaxed">
+                        A comprehensive SQL script demonstrating proficiency in database management by creating, populating, and querying a 'Library' database. Showcases skills in defining tables with primary/foreign keys and executing complex analytical queries.
+                    </p>
+                    <a href="YOUR_LIBRARY_GITHUB_LINK" target="_blank" class="project-link">
+                        View Code on GitHub &rarr;
+                    </a>
+                </div>
+
+                <!-- Project Card 3: System Monitor Tool (C++) -->
+                <div class="project-card">
+                    <h3 class="project-title">System Monitor Tool</h3>
+                    <p class="project-meta">C++, Linux | Nov 2025</p>
+                    <p class="text-relaxed">
+                        Developed a lightweight, terminal-based system monitor tool for Linux platforms. Designed the software to display real-time system statistics, including memory usage, load averages, and the top resource-intensive processes.
+                    </p>
+                    <a href="YOUR_SYSTEM_MONITOR_GITHUB_LINK" target="_blank" class="project-link">
+                        View Code on GitHub &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">&copy; <span id="currentYear"></span> Sudhruti Mohanty | Contact: sudhrutiaditi2004@gmail.com</p>
+            <p class="footer-contact">
+                <a href="tel:+919439877288" class="hover:underline">+91 9439877288</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Set the current year in the footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
